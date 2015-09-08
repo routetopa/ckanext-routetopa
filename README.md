@@ -1,6 +1,6 @@
 # CKAN route to PA extension 
 
-Adds TET extenstion to CKAN platform 
+Adds TET extenstions to CKAN platform 
 
 ## Build instructions 
 
@@ -8,9 +8,6 @@ activate python virtual env
 
 ```sh
 . /usr/lib/ckan/default/bin/activate
-git clone git@gitlab.insight-centre.org:egov/rtpa-devenv.git
-cd rtpa-devenv
-vagrant up
 ```
 
 clone git repository
