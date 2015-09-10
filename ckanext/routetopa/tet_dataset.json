@@ -122,7 +122,13 @@
       "display_email_name_field": "maintainer",
       "validators" : "not_empty",
       "required" : "true"
+    },
+    {
+      "field_name": "completeness",
+      "label": "Compleness",
+      "form_snippet": "completeness.html"
     }
+
   ],
   "resource_fields": [
     {
