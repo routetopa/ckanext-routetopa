@@ -64,7 +64,7 @@
       "validators": "ignore_missing unicode package_version_validator",
       "form_placeholder": "1.0",
       "required" : "true",
-      "validators": "not_empty url_validator"
+      "validators": "not_empty"
     },
     {
       "field_name": "revision_of",

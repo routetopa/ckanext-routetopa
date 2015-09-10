@@ -26,5 +26,5 @@ class RoutetopaPlugin(plugins.SingletonPlugin):
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'routetopa')
     def get_validators(self):
-    	return {'check_license': check_license, 'debug': debug, 'check_tags': check_tags }
+    	return {'check_license': check_license, 'check_tags': check_tags }
     
