@@ -128,7 +128,8 @@
     {
       "field_name": "completeness",
       "label": "Compleness",
-      "form_snippet": "completeness.html"
+      "form_snippet": "completeness.html",
+      "display_snippet": "completeness.html"
     }
 
   ],
