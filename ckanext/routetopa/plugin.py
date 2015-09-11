@@ -12,7 +12,7 @@ def check_license(value):
     return value
 
 def check_tags(value):
-    if len(value.split(",")) < 3:
+    if type(value) is unicode and len(value.split(",")) < 3:
     	raise Invalid('Provide at least three tags for the dataset');
     return value
 
