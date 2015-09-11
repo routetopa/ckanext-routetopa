@@ -55,8 +55,7 @@
       "form_placeholder": "http://example.com/dataset.json",
       "display_property": "foaf:homepage",
       "display_snippet": "link.html",
-      "required" : "true",
-      "validators": "not_empty url_validator"
+      "validators": "url_validator"
     },
     {
       "field_name": "version",
@@ -71,6 +70,7 @@
       "label": "Was Revision Of",
       "form_placeholder": "http://example.com/dataset.json",
       "display_property": "prov:wasRevisionOf",
+      "validators" : "url_validator",
       "display_snippet": "link.html"
     },
     {
@@ -78,6 +78,7 @@
       "label": "Spatial URI",
       "form_placeholder": "http://example.com/",
       "display_property": "dct:spatial",
+      "validators" : "url_validator",
       "display_snippet": "link.html"
     },
     {
@@ -85,6 +86,7 @@
       "label": "Temporal URI",
       "form_placeholder": "http://example.com/",
       "display_property": "dct:temporal",
+      "validators" : "url_validator",
       "display_snippet": "link.html"
     },
     {
@@ -134,23 +136,31 @@
     {
       "field_name": "url",
       "label": "URL",
-      "preset": "resource_url_upload"
+      "preset": "resource_url_upload",
+      "validators" : "not_empty",
+      "required" : "true"
     },
     {
       "field_name": "name",
       "label": "Name",
-      "form_placeholder": "eg. January 2011 Gold Prices"
+      "form_placeholder": "eg. January 2011 Gold Prices",
+      "validators" : "not_empty",
+      "required" : "true"
     },
     {
       "field_name": "description",
       "label": "Description",
       "form_snippet": "markdown.html",
-      "form_placeholder": "Some useful notes about the data"
+      "form_placeholder": "Some useful notes about the data",
+      "validators" : "not_empty",
+      "required" : "true"
     },
     {
       "field_name": "format",
       "label": "Format",
-      "preset": "resource_format_autocomplete"
+      "preset": "resource_format_autocomplete",
+      "validators" : "not_empty",
+      "required" : "true"
     }
   ]
 }
