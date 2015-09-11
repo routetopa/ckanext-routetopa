@@ -2,6 +2,11 @@
 
 Adds TET extenstions to CKAN platform 
 
+## Prerequisites
+
+* Install lastest version of CKAN 
+* Install [CKAN scheming plugin](https://github.com/open-data/ckanext-scheming)
+
 ## Build instructions 
 
 activate python virtual env 
