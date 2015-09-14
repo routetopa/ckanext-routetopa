@@ -82,7 +82,7 @@
       "display_snippet": "link.html"
     },
     {
-      "field_name": "dct:temporal",
+      "field_name": "temporal",
       "label": "Temporal URI",
       "form_placeholder": "http://example.com/",
       "display_property": "dct:temporal",

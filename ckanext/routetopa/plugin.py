@@ -48,4 +48,13 @@ class RtpaApi(BaseController):
         path = os.path.dirname(__file__)
         with open( path + '/tet_dataset.json') as json_file:
             json_data = json.load(json_file)
-        return json.dumps(json_data)
+        res = {}
+        for item in json_data["dataset_fields"]:
+            resitem = {}
+            if "required" in item.keys():
+                resitem["required"] = item["required"]
+            if "validators" in item.keys():
+                resitem["validators"] = item["validators"]
+            
+            res["field-" + item["field_name"]] = resitem
+        return json.dumps(res)
