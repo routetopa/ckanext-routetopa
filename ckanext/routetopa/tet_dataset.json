@@ -36,6 +36,16 @@
       "required" : "true"
     },
     {
+      "field_name": "target_audience",
+      "label": "Target Audience",
+      "validators": "ignore_missing",
+      "form_attrs": {
+        "data-module": "autocomplete",
+        "data-module-tags": "",
+        "data-module-source": "/api/3/util/tet/autocomplete?incomplete=?"
+      }
+    },
+    {
       "field_name": "license_id",
       "label": "License",
       "form_snippet": "license.html",
