@@ -60,7 +60,8 @@ class RoutetopaPlugin(plugins.SingletonPlugin):
         if "q" in search_params.keys() and search_params["q"].startswith("role::"):
             role = search_params["q"].replace("role::","")
             search_params["q"] = role
-            
+        return search_params
+
     #ITemplateHelpers
     def get_helpers(self):
         return {'get_config': get_config}
