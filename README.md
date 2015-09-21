@@ -22,14 +22,14 @@ git@gitlab.insight-centre.org:egov/ckanext-routetopa.git
 cd ckanext-routetopa
 ```
 
-add following lines in 'fields' section of /etc/solr/conf/schema.xml
+add following lines in 'fields' section of '/etc/solr/conf/schema.xml'
 
 ```xml
-    <field name="target_audience" type="text" indexed="true" stored="true" />
-    <field name="category" type="text" indexed="true" stored="true" />
+<field name="target_audience" type="text" indexed="true" stored="true" />
+<field name="category" type="text" indexed="true" stored="true" />
 ```
 
-retstat solar
+retstart solar
 
 ```sh
 sudo service jetty restart
@@ -48,7 +48,7 @@ python setup.py develop
 
 Add 'routetopa' plugin to CKAN config file :
 ```sh
-ckan.plugins = stats text_view recline_view routetopa
+ckan.plugins = stats text_view recline_view scheming_datasets routetopa
 ```
 
 start ckan
