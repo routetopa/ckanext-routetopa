@@ -59,8 +59,16 @@ class RoutetopaPlugin(plugins.SingletonPlugin):
     def before_search(self, search_params):
         if "q" in search_params.keys() and search_params["q"].startswith("role::"):
             role = search_params["q"].replace("role::","")
-            search_params["q"] = role
+            search_params["q"] = role 
+            search_params["qf"] = "target_audience"
+        if "q" in search_params.keys() and search_params["q"].startswith("category::"):
+            role = search_params["q"].replace("category::","")
+            search_params["q"] = role 
+            search_params["qf"] = "category"
         return search_params
+
+    def before_index(self, pkg_dict):
+        return pkg_dict
 
     #ITemplateHelpers
     def get_helpers(self):
@@ -89,7 +97,8 @@ class RtpaApi(BaseController):
     def autocomplete(self):
         response.content_type = 'application/json; charset=UTF-8'
         q = request.params["incomplete"]
-        roles = get_config()["roles"]
+        s = request.params["s"]
+        roles = get_config()[s]
         data = {"ResultSet" : {}}
         data["ResultSet"] ["Result"] = [role for role in roles if (q.lower() in role.lower())]
         return json.dumps(data)

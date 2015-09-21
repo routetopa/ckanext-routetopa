@@ -3,12 +3,43 @@
 <div class="module-content box">
   <header>
   	<h1 class="page-heading">{{ _("Welcome to CKAN") }}</h1>
-  	<h2>I am:</h2>
-	<ul>
-	{% set roles = h.get_config()["roles"] %}
-	{% for role in roles %}
-    	<li><a href="/dataset?q=role::{{role}}">{{ role }}</a></li>
-    {% endfor %}
-    </ul>
+  	
+    <div class="accordion" id="dataset-view">
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#dataset-view" href="#roles-collapse">
+            Datasets by Role
+          </a>
+        </div>
+        <div id="roles-collapse" class="accordion-body collapse in">
+          <div class="accordion-inner">
+          <h2>I am:</h2>
+          <ul>
+            {% set roles = h.get_config()["roles"] %}
+            {% for role in roles %}
+              <li><a href="/dataset?q=role::{{role}}">{{ role }}</a></li>
+            {% endfor %}
+          </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#dataset-view" href="#categories-collapse">
+            Datasets by Category 
+          </a>
+        </div>
+        <div id="categories-collapse" class="accordion-body collapse">
+          <div class="accordion-inner">
+          <ul>
+            {% set categories = h.get_config()["categories"] %}
+            {% for category in categories %}
+                <li><a href="/dataset?q=category::{{category}}">{{ category }}</a></li>
+            {% endfor %}
+           </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </header>  
 </div>

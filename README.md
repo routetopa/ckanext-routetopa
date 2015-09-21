@@ -22,6 +22,19 @@ git@gitlab.insight-centre.org:egov/ckanext-routetopa.git
 cd ckanext-routetopa
 ```
 
+add following lines in 'fields' section of /etc/solr/conf/schema.xml
+
+```xml
+    <field name="target_audience" type="text" indexed="true" stored="true" />
+    <field name="category" type="text" indexed="true" stored="true" />
+```
+
+retstat solar
+
+```sh
+sudo service jetty restart
+```
+
 build the plugin
 
 ```sh
