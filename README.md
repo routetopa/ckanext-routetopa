@@ -41,7 +41,7 @@ build the plugin
 python setup.py develop
 ```
 
-add the following line to CKAN config file :
+add following line to CKAN config file :
 
 ```sh
 scheming.dataset_schemas = ckanext.routetopa:tet_dataset.json
