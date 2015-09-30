@@ -1,0 +1,6 @@
+<div>
+{% for locale in h.get_available_locales() %}
+	 {% if locale == data[field.field_name] %}{{locale.english_name}}{% endif %}
+{% endfor %}
+</div>
+ 

@@ -28,6 +28,12 @@
       "validators": "not_empty"
     },
     {
+      "field_name": "language",
+      "label": "Language",
+      "form_snippet": "lang_select.html",
+      "display_snippet": "lang_select.html"
+    },
+    {
       "field_name": "tag_string",
       "label": "Tags",
       "preset": "tag_string_autocomplete",
@@ -42,7 +48,17 @@
       "form_attrs": {
         "data-module": "autocomplete",
         "data-module-tags": "",
-        "data-module-source": "/api/3/util/tet/autocomplete?incomplete=?"
+        "data-module-source": "/api/3/util/tet/autocomplete?s=roles&incomplete=?"
+      }
+    },
+    {
+      "field_name": "category",
+      "label": "Category",
+      "validators": "ignore_missing",
+      "form_attrs": {
+        "data-module": "autocomplete",
+        "data-module-tags": "",
+        "data-module-source": "/api/3/util/tet/autocomplete?s=categories&incomplete=?"
       }
     },
     {
@@ -76,6 +92,12 @@
       "validators": "not_empty"
     },
     {
+      "field_name": "frequency",
+      "label": "Frequency of Publication",
+      "form_placeholder": "Once a week",
+      "display_property": "frequency"
+    },
+    {
       "field_name": "revision_of",
       "label": "Was Revision Of",
       "form_placeholder": "http://example.com/dataset.json",
@@ -92,10 +114,26 @@
       "display_snippet": "link.html"
     },
     {
+      "field_name": "spatial_details",
+      "label": "Spatial Details"
+    },
+    {
       "field_name": "temporal",
       "label": "Temporal URI",
       "form_placeholder": "http://example.com/",
       "display_property": "dct:temporal",
+      "validators" : "url_validator",
+      "display_snippet": "link.html"
+    },
+    {
+      "field_name": "temporal_details",
+      "label": "Temporal Details"
+    },
+    {
+      "field_name": "conforms_to",
+      "label": "Conforms to",
+      "form_placeholder": "http://www.w3.org/TR/dwbp/",
+      "display_property": "dct:conformsTo",
       "validators" : "url_validator",
       "display_snippet": "link.html"
     },

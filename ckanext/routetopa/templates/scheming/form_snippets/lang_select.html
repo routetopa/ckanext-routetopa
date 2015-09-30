@@ -1,0 +1,15 @@
+{% import 'macros/form.html' as form %}
+{% set current_lang = request.environ.CKAN_LANG %}
+<div class="control-group control-medium">
+	<label class="control-label" for="field-custom_text">{{ field.label }}</label>
+	<div class="controls ">
+	    <select id="field-{{field.field_name}}" type="hidden" name="{{field.field_name}}" value="0"/>
+	    	{% for locale in h.get_available_locales() %}
+	    		<option value="{{locale}}" 
+	    			{% if locale == current_lang %}selected="selected"{% endif %}>
+	    			{{ locale.display_name or locale.english_name }}
+	    	 	</option>
+    		{% endfor %}
+		</select>
+	</div>
+</div>

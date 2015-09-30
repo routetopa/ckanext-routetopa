@@ -17,6 +17,7 @@ $(document).ready(function () {
 		    	if (reqComplete  < totalReq - 1 ) $(".progress").attr("class","progress progress-danger");
 		    	else $(".progress").attr("class","progress progress-success");
 		    	$(".bar").css("width", result+"%");
+		    	$(".bar").text(result+"%");
 		    	$("#field-completeness").val(result);
 		    });
 		    $("#field-completeness").change();

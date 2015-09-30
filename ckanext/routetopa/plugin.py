@@ -62,8 +62,8 @@ class RoutetopaPlugin(plugins.SingletonPlugin):
             search_params["q"] = role 
             search_params["qf"] = "target_audience"
         if "q" in search_params.keys() and search_params["q"].startswith("category::"):
-            role = search_params["q"].replace("category::","")
-            search_params["q"] = role 
+            category = search_params["q"].replace("category::","")
+            search_params["q"] = category
             search_params["qf"] = "category"
         return search_params
 
