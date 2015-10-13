@@ -45,12 +45,13 @@ class RoutetopaPlugin(plugins.SingletonPlugin):
     	return {'check_license': check_license, 'check_tags': check_tags }
 
     # IRoutes
+
     @staticmethod
     def after_map(m):
          m.connect('getschema', '/api/3/util/tet/getschema',
             controller='ckanext.routetopa.plugin:RtpaApi', action='get_schema')
-         m.connect('getroles', '/api/3/util/tet/getroles',
-            controller='ckanext.routetopa.plugin:RtpaApi', action='get_roles')
+         m.connect('getroles', '/api/3/util/tet/getconfig',
+            controller='ckanext.routetopa.plugin:RtpaApi', action='get_configuration')
          m.connect('autocomplete', '/api/3/util/tet/autocomplete',
             controller='ckanext.routetopa.plugin:RtpaApi', action='autocomplete')
          return m
@@ -90,9 +91,9 @@ class RtpaApi(BaseController):
             res["field-" + item["field_name"]] = resitem
         return json.dumps(res)
 
-    def get_roles(self):
+    def get_configuration(self):
         response.content_type = 'application/json; charset=UTF-8'
-        return json.dumps(get_config()["roles"])
+        return json.dumps(get_config())
 
     def autocomplete(self):
         response.content_type = 'application/json; charset=UTF-8'
