@@ -1,4 +1,4 @@
 {
-	"roles" : ["Citizen", "Resident", "Unemployed Person", "Businessman", "Economist", "Statistician", "Journalist"],
-	"categories" : ["Agriculture", "Business", "Climate", "Crime and Justice", "Environment", "Education", "Energy", "Finance", "Health", "Houseing", "Transport", "Local Governments", "Science and Technology", "Population and Society"]
+	"roles" : ["Citizen", "Resident", "Unemployed Person", "Person with Disabilities" , "Businessman", "Investor", "Economist", "Statistician", "Journalist", "Developer", "Data Scientist"],
+	"categories" : ["Agriculture", "Business", "Climate", "Culture and Heritage" , "Crime and Justice", "Economy", "Environment", "Education", "Energy", "Finance", "Health", "Houseing", "Transport", "Local Governments", "Science","Technology", "Population", "Society"]
 }
