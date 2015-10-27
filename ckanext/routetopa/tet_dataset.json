@@ -31,7 +31,9 @@
       "field_name": "language",
       "label": "Language",
       "form_snippet": "lang_select.html",
-      "display_snippet": "lang_select.html"
+      "display_snippet": "lang_select.html",
+      "required" : "true",
+      "validators": "not_empty"
     },
     {
       "field_name": "tag_string",
@@ -44,7 +46,8 @@
     {
       "field_name": "target_audience",
       "label": "Target Audience",
-      "validators": "ignore_missing",
+      "validators": "ignore_missing tag_string_convert",
+      "required" : "true",
       "form_attrs": {
         "data-module": "autocomplete",
         "data-module-tags": "",
@@ -54,7 +57,8 @@
     {
       "field_name": "category",
       "label": "Category",
-      "validators": "ignore_missing",
+      "required" : "true",
+      "validators": "ignore_missing  tag_string_convert",
       "form_attrs": {
         "data-module": "autocomplete",
         "data-module-tags": "",
@@ -81,7 +85,8 @@
       "form_placeholder": "http://example.com/dataset.json",
       "display_property": "foaf:homepage",
       "display_snippet": "link.html",
-      "validators": "url_validator"
+      "validators": "url_validator",
+      "required" : "true"
     },
     {
       "field_name": "version",
@@ -107,27 +112,39 @@
     },
     {
       "field_name": "spatial",
-      "label": "Spatial URI",
+      "label": "Spatial Coverage",
       "form_placeholder": "http://example.com/",
       "display_property": "dct:spatial",
       "validators" : "url_validator",
       "display_snippet": "link.html"
     },
     {
-      "field_name": "spatial_details",
-      "label": "Spatial Details"
+      "field_name": "spatial_notes",
+      "form_snippet": "markdown.html",
+      "label": "Spatial Notes"
     },
     {
       "field_name": "temporal",
-      "label": "Temporal URI",
+      "label": "Temporal Coverage",
       "form_placeholder": "http://example.com/",
       "display_property": "dct:temporal",
       "validators" : "url_validator",
       "display_snippet": "link.html"
     },
     {
-      "field_name": "temporal_details",
-      "label": "Temporal Details"
+      "field_name": "temporal_start",
+      "label": "Temporal Coverage From",
+      "preset": "date"
+    },
+    {
+      "field_name": "temporal_end",
+      "label": "Temporal Coverage To",
+      "preset": "date"
+    },
+    {
+      "field_name": "temporal_notes",
+      "form_snippet": "markdown.html",
+      "label": "Temporal Notes"
     },
     {
       "field_name": "conforms_to",
@@ -175,7 +192,7 @@
     },
     {
       "field_name": "completeness",
-      "label": "Compleness",
+      "label": "Completeness",
       "form_snippet": "completeness.html",
       "display_snippet": "completeness.html"
     }
