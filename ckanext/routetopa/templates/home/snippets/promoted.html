@@ -17,7 +17,7 @@
           <ul>
             {% set roles = h.get_config()["roles"] %}
             {% for role in roles %}
-              <li><a href="/dataset?q=role::{{role}}">{{ role }}</a></li>
+              <li><a href="/dataset?q=role::{{role}}">{{ role }} ({{roles[role]}})</a></li>
             {% endfor %}
           </ul>
           </div>
@@ -34,7 +34,7 @@
           <ul>
             {% set categories = h.get_config()["categories"] %}
             {% for category in categories %}
-                <li><a href="/dataset?q=category::{{category}}">{{ category }}</a></li>
+                <li><a href="/dataset?q=category::{{category}}">{{ category }} ({{categories[category]}})</a></li>
             {% endfor %}
            </ul>
           </div>

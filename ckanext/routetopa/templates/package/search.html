@@ -1,9 +1,9 @@
 {% ckan_extends %}
 {% block form %}
 {% if "role::" in c.q %}
-       <h1> Dasetes for {{c.q.replace("role::","")}} </h1> 
+       <h1> Datasets for {{c.q.replace("role::","")}} </h1> 
 {% elif "category::" in c.q %}
-       <h1> Dasetes for {{c.q.replace("category::","")}} </h1>
+       <h1> Datasets for {{c.q.replace("category::","")}} </h1>
 {% else %}
   {% set facets = {
     'fields': c.fields_grouped,

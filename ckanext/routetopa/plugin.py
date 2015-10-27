@@ -5,6 +5,7 @@ from logging import getLogger
 from ckan.plugins.toolkit import Invalid
 from ckan.lib.base import BaseController
 from ckan.common import json, response, request
+import ckan.model as model
 import os
 
 log = getLogger(__name__)
@@ -25,7 +26,17 @@ def get_config():
     path = os.path.dirname(__file__)
     with open( path + '/config.json') as json_file:
         json_data = json.load(json_file)
-    return json_data
+    results = {}
+    config = json_data
+    for item in config.keys():
+        results[item] = {}
+        for tag_name in config[item]:
+            try:
+                tag_count = len(model.Tag.get(tag_name).packages)
+            except Exception:
+                tag_count = 0
+            results[item][tag_name] = tag_count
+    return results
 
 class RoutetopaPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
