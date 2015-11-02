@@ -60,6 +60,6 @@ paster serve /etc/ckan/default/development.ini
 License
 -------------------
 
-Licensed under the GNU Affero General Public License (AGPL) v3.0
+The code licensed under the GNU Affero General Public License (AGPL) v3.0
 
-Dvelopment of TET extenstion is supported by European Commision through the [ROUTE-TO_PA project](http://routetopa.eu/) 
+Dvelopment of TET extenstion is supported by European Commision through the [ROUTE-TO-PA project](http://routetopa.eu/) 
