@@ -9,12 +9,34 @@
 
     {{ form.input('fullname', label=_('Full name'), id='field-fullname', value=data.fullname, error=errors.fullname, placeholder=_('eg. Joe Bloggs'), classes=['control-medium']) }}
 
-    {{ form.input('test123', label=_('Test'), id='field-test123', value=data.test123, error=errors.test123, placeholder=_('eg. 123s'), classes=['control-medium']) }}
+    <div class="control-group control-medium">
+      <label class="control-label" for="field-role"> {{_("Role")}}</label>
+      <div class="controls ">
+        <select id="field-role" name="role" data-module="autocomplete">
+          {% for role in h.get_config()["roles"]  %}
+            <option value="{{ role }}" {% if role in data.get('role', []) %}selected="selected"{% endif %} >{{ _(role) }}</option>
+          {% endfor %}
+           <option value="" {% if data.get('role') == "" %}selected="selected"{% endif %}></option>
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group control-medium">
+      <label class="control-label" for="field-category"> {{_("Category of Intrest")}}</label>
+      <div class="controls ">
+        <select id="field-category" name="category" data-module="autocomplete">
+          {% for category in h.get_config()["categories"]  %}
+            <option value="{{ category }}" {% if category in data.get('category', []) %}selected="selected"{% endif %}>{{ _(category) }}</option>
+          {% endfor %}
+           <option value="" {% if data.get('category') == "" %}selected="selected"{% endif %}></option>
+        </select>
+      </div>
+    </div>
+
+
+    {{ form.input('twitter', label=_('Twitter ID'), id='field-twitter', value=data.twitter, error=errors.twitter, placeholder=_('eg. RouteToPA'), classes=['control-medium']) }}
 
     {{ form.input('email', label=_('Email'), id='field-email', type='email', value=data.email, error=errors.email, placeholder=_('eg. joe@example.com'), classes=['control-medium'], is_required=true) }}
-
-
-    {{ form.markdown('about', label=_('About'), id='field-about', value=data.about, error=errors.about, placeholder=_('A little information about yourself')) }}
 
     {% if c.show_email_notifications %}
       {% call form.checkbox('activity_streams_email_notifications', label=_('Subscribe to notification emails'), id='field-activity-streams-email-notifications', value=True, checked=c.userobj.activity_streams_email_notifications) %}

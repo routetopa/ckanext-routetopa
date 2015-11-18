@@ -58,6 +58,19 @@ class RoutetopaPlugin(plugins.SingletonPlugin):
     # IRoutes
 
     @staticmethod
+    def before_map(m):
+        m.connect('/user/register',
+            controller='ckanext.routetopa.controller:CustomUserController',
+            action='register')
+        m.connect('/user/edit',
+            controller='ckanext.routetopa.controller:CustomUserController',
+            action='edit')
+        m.connect('/user/edit/{id:.*}',
+            controller='ckanext.routetopa.controller:CustomUserController',
+            action='edit')
+        return m
+
+    @staticmethod
     def after_map(m):
          m.connect('getschema', '/api/3/util/tet/getschema',
             controller='ckanext.routetopa.plugin:RtpaApi', action='get_schema')

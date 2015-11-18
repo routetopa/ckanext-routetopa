@@ -2,11 +2,41 @@
 
 <form id="user-register-form" class="form-horizontal" action="" method="post">
   {{ form.errors(error_summary) }}
+  
   {{ form.input("name", id="field-username", label=_("Username"), placeholder=_("username"), value=data.name, error=errors.name, classes=["control-medium"]) }}
+
   {{ form.input("fullname", id="field-fullname", label=_("Full Name"), placeholder=_("Joe Bloggs"), value=data.fullname, error=errors.fullname, classes=["control-medium"]) }}
-  {{ form.input("test123", id="field-test123", label=_("Test"), placeholder=_("123"), value=data.test123, error=errors.test123, classes=["control-medium"]) }}
+  
+  <div class="control-group control-medium">
+    <label class="control-label" for="field-role"> {{_("Role")}}</label>
+    <div class="controls">
+      <select id="field-role" name="role" data-module="autocomplete">
+        {% for role in h.get_config()["roles"]  %}
+          <option value="{{ role }}" >{{ _(role) }}</option>
+        {% endfor %}
+           <option value="" selected ></option>
+      </select>
+    </div>
+  </div>
+
+  <div class="control-group control-medium">
+    <label class="control-label" for="field-category"> {{_("Category of Intrest")}}</label>
+    <div class="controls">
+      <select id="field-category" name="category" data-module="autocomplete">
+        {% for category in h.get_config()["categories"]  %}
+          <option value="{{ category }}" >{{ _(category) }}</option>
+        {% endfor %}
+         <option value="" selected ></option>
+      </select>
+    </div>
+  </div>
+
+  {{ form.input('twitter', label=_('Twitter ID'), id='field-twitter', value=data.twitter, error=errors.twitter, placeholder=_('eg. RouteToPA'), classes=['control-medium']) }}
+  
   {{ form.input("email", id="field-email", label=_("Email"), type="email", placeholder=_("joe@example.com"), value=data.email, error=errors.email, classes=["control-medium"]) }}
+  
   {{ form.input("password1", id="field-password", label=_("Password"), type="password", placeholder="••••••••", value=data.password1, error=errors.password1, classes=["control-medium"]) }}
+  
   {{ form.input("password2", id="field-confirm-password", label=_("Confirm"), type="password", placeholder="••••••••", value=data.password2, error=errors.password1, classes=["control-medium"]) }}
 
   {% if g.recaptcha_publickey %}
