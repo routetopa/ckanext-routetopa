@@ -87,7 +87,7 @@ def get_recommended_datasets_for_user():
             extra_data["role"] = ""
             extra_data["category"] = ""
         if not extra_data["category"] == "" : q += extra_data["category"] + ' '
-        if not extra_data["role"] == "" : q += extra_data["category"] + ' '
+        if not extra_data["role"] == "" : q += extra_data["role"] + ' '
     data_dict = {
        'qf':'target_audience^4 category^4 name^4 title^4 tags^2 groups^2 text',
        'q': q,
@@ -131,8 +131,6 @@ class RoutetopaPlugin(plugins.SingletonPlugin):
     def after_map(m):
          m.connect('getschema', '/api/3/util/tet/getschema',
             controller='ckanext.routetopa.plugin:RtpaApi', action='get_schema')
-         m.connect('getrecommendations', '/api/3/util/tet/getrecommendations',
-            controller='ckanext.routetopa.plugin:RtpaApi', action='get_recommended_datasets')
          m.connect('getroles', '/api/3/util/tet/getconfig',
             controller='ckanext.routetopa.plugin:RtpaApi', action='get_configuration')
          m.connect('autocomplete', '/api/3/util/tet/autocomplete',
