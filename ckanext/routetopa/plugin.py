@@ -157,6 +157,14 @@ class RoutetopaPlugin(plugins.SingletonPlugin):
             category = search_params["q"].replace("category::","")
             search_params["q"] = category
             search_params["qf"] = "category"
+        try:
+            if not search_params["q"]: search_params["q"]  = ""
+            search_params["qf"] = "target_audience^4 category^4 name^4 title^4 tags^2 groups^2 text"
+            if not extra_data["category"] == "" : search_params["q"] += extra_data["category"] + ' '
+            if not extra_data["role"] == "" : search_params["q"] += extra_data["role"] + ' '
+            log.debug(search_params)
+        except Exception:
+            log.info("Peronalized search failed.")
         return search_params
 
     def before_index(self, pkg_dict):
@@ -164,7 +172,9 @@ class RoutetopaPlugin(plugins.SingletonPlugin):
 
     #ITemplateHelpers
     def get_helpers(self):
-        return {'get_config': get_config}
+        return {'get_config': get_config, 
+                'get_req_usr': get_recommended_datasets_for_user,
+                'get_req': get_recommended_datasets }
 
 class RtpaApi(BaseController):
     def get_schema(self):
