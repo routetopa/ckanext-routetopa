@@ -131,6 +131,8 @@ class RoutetopaPlugin(plugins.SingletonPlugin):
     def after_map(m):
          m.connect('getschema', '/api/3/util/tet/getschema',
             controller='ckanext.routetopa.plugin:RtpaApi', action='get_schema')
+         m.connect('getrecommendations', '/api/3/util/tet/getrecommendations',
+            controller='ckanext.routetopa.plugin:RtpaApi', action='get_recommended_datasets')
          m.connect('getroles', '/api/3/util/tet/getconfig',
             controller='ckanext.routetopa.plugin:RtpaApi', action='get_configuration')
          m.connect('autocomplete', '/api/3/util/tet/autocomplete',
