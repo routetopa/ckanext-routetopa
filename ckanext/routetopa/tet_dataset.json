@@ -66,6 +66,16 @@
       }
     },
     {
+      "field_name": "linked_datasets",
+      "label": "Related Datasets",
+      "validators": "ignore_missing",
+      "form_attrs": {
+        "data-module": "autocomplete",
+        "data-module-tags": "",
+        "data-module-source": "/api/2/util/dataset/autocomplete?incomplete=?"
+      }
+    },
+    {
       "field_name": "license_id",
       "label": "License",
       "form_snippet": "license.html",

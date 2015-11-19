@@ -40,6 +40,32 @@
           </div>
         </div>
       </div>
+
+        <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#dataset-view" href="#req-collapse">
+            Datasets Recommeded for Me
+          </a>
+        </div>
+        <div id="req-collapse" class="accordion-body collapse">
+          <div class="accordion-inner">
+            {% set datasets = h.get_req_usr()["results"] %}
+            <ul class="dataset-list unstyled">
+            {% for dataset in datasets %}
+                <li class="dataset-item">
+                <h3 class="dataset-heading">
+                  <a href="/dataset/{{dataset["name"]}}">{{dataset["title"]}}</a>
+                </h3>
+                <div>
+                  {{dataset["notes"]}}
+                </div>
+                </li>
+            {% endfor %}
+           </ul>
+          </div>
+        </div>
+      </div>
+
     </div>
   </header>  
 </div>
