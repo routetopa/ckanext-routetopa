@@ -131,6 +131,8 @@ class RoutetopaPlugin(plugins.SingletonPlugin):
     def after_map(m):
          m.connect('getschema', '/api/3/util/tet/getschema',
             controller='ckanext.routetopa.plugin:RtpaApi', action='get_schema')
+         m.connect('get_recommended_datasets_for_user', '/api/3/util/tet/get_recommended_datasets_for_user',
+            controller='ckanext.routetopa.plugin:RtpaApi', action='get_recommended_datasets_for_user')
          m.connect('getroles', '/api/3/util/tet/getconfig',
             controller='ckanext.routetopa.plugin:RtpaApi', action='get_configuration')
          m.connect('autocomplete', '/api/3/util/tet/autocomplete',
@@ -191,6 +193,9 @@ class RtpaApi(BaseController):
                 resitem["validators"] = item["validators"]
             res["field-" + item["field_name"]] = resitem
         return json.dumps(res)
+    def get_recommended_datasets_for_user(self):
+        response.content_type = 'application/json; charset=UTF-8'
+        return json.dumps(get_recommended_datasets_for_user())
 
     def get_configuration(self):
         response.content_type = 'application/json; charset=UTF-8'
