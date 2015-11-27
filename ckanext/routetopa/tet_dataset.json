@@ -17,7 +17,8 @@
       "field_name": "name",
       "label": "URL",
       "preset": "dataset_slug",
-      "form_placeholder": "eg. my-dataset "
+      "form_placeholder": "eg. my-dataset",
+      "form_snippet" : "text_large.html"
     },
     {
       "field_name": "notes",
@@ -96,7 +97,8 @@
       "display_property": "foaf:homepage",
       "display_snippet": "link.html",
       "validators": "url_validator",
-      "required" : "true"
+      "required" : "true",
+      "form_snippet" : "text_large.html"
     },
     {
       "field_name": "version",
@@ -104,13 +106,15 @@
       "validators": "ignore_missing unicode package_version_validator",
       "form_placeholder": "1.0",
       "required" : "true",
-      "validators": "not_empty"
+      "validators": "not_empty",
+      "form_snippet" : "text_large.html"
     },
     {
       "field_name": "frequency",
       "label": "Frequency of Publication",
       "form_placeholder": "Once a week",
-      "display_property": "frequency"
+      "display_property": "frequency",
+      "form_snippet" : "text_large.html"
     },
     {
       "field_name": "revision_of",
@@ -118,7 +122,8 @@
       "form_placeholder": "http://example.com/dataset.json",
       "display_property": "prov:wasRevisionOf",
       "validators" : "url_validator",
-      "display_snippet": "link.html"
+      "display_snippet": "link.html",
+      "form_snippet" : "text_large.html"
     },
     {
       "field_name": "spatial",
@@ -126,7 +131,8 @@
       "form_placeholder": "http://example.com/",
       "display_property": "dct:spatial",
       "validators" : "url_validator",
-      "display_snippet": "link.html"
+      "display_snippet": "link.html",
+      "form_snippet" : "text_large.html"
     },
     {
       "field_name": "spatial_notes",
@@ -139,17 +145,20 @@
       "form_placeholder": "http://example.com/",
       "display_property": "dct:temporal",
       "validators" : "url_validator",
-      "display_snippet": "link.html"
+      "display_snippet": "link.html",
+      "form_snippet" : "text_large.html"
     },
     {
       "field_name": "temporal_start",
       "label": "Temporal Coverage From",
-      "preset": "date"
+      "preset": "date",
+      "form_snippet" : "date_large.html"
     },
     {
       "field_name": "temporal_end",
       "label": "Temporal Coverage To",
-      "preset": "date"
+      "preset": "date",
+      "form_snippet" : "date_large.html"
     },
     {
       "field_name": "temporal_notes",
@@ -162,7 +171,8 @@
       "form_placeholder": "http://www.w3.org/TR/dwbp/",
       "display_property": "dct:conformsTo",
       "validators" : "url_validator",
-      "display_snippet": "link.html"
+      "display_snippet": "link.html",
+      "form_snippet" : "text_large.html"
     },
     {
       "field_name": "author",
@@ -170,7 +180,8 @@
       "form_placeholder": "Joe Bloggs",
       "display_property": "dc:creator",
       "validators" : "not_empty",
-      "required" : "true"
+      "required" : "true",
+      "form_snippet" : "text_large.html"
     },
     {
       "field_name": "author_email",
@@ -180,7 +191,8 @@
       "display_snippet": "email.html",
       "display_email_name_field": "author",
       "validators" : "not_empty",
-      "required" : "true"
+      "required" : "true",
+      "form_snippet" : "text_large.html"
     },
     {
       "field_name": "maintainer",
@@ -188,7 +200,8 @@
       "form_placeholder": "Joe Bloggs",
       "display_property": "dc:contributor",
       "validators" : "not_empty",
-      "required" : "true"
+      "required" : "true",
+      "form_snippet" : "text_large.html"
     },
     {
       "field_name": "maintainer_email",
@@ -198,7 +211,8 @@
       "display_snippet": "email.html",
       "display_email_name_field": "maintainer",
       "validators" : "not_empty",
-      "required" : "true"
+      "required" : "true",
+      "form_snippet" : "text_large.html"
     },
     {
       "field_name": "completeness",
