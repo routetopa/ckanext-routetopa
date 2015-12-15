@@ -38,15 +38,7 @@ $(document).ready(function () {
                         break;
                 }
 
-                console.log(complete, result, progressClass, result < 35, result < 55, result < 75, result < 95, result >= 95);
-
                 $(".bar").attr("class", "bar " + progressClass);
-
-//                if (reqComplete < totalReq - 1){
-//                    $(".progress").attr("class", "progress progress-danger");
-//                } else {
-//                    $(".progress").attr("class", "progress progress-success");
-//                }
 
                 $(".bar").css("width", result + "%");
                 $(".bar").text(result + "%");
