@@ -145,6 +145,8 @@ class RoutetopaPlugin(plugins.SingletonPlugin):
             controller='ckanext.routetopa.plugin:RtpaApi', action='get_configuration')
          m.connect('autocomplete', '/api/3/util/tet/autocomplete',
             controller='ckanext.routetopa.plugin:RtpaApi', action='autocomplete')
+         m.connect('get_recommended_datasets', '/api/3/util/tet/get_recommended_datasets',
+            controller='ckanext.routetopa.plugin:RtpaApi', action='get_recommended_datasets')
          return m
 
     #IPackageController
@@ -217,6 +219,16 @@ class RtpaApi(BaseController):
         data = {"ResultSet" : {}}
         data["ResultSet"] ["Result"] = [role for role in roles if (q.lower() in role.lower())]
         return json.dumps(data)
+        
+    def get_recommended_datasets(self):
+        response.content_type = 'application/json; charset=UTF-8'
+        pkg_id = request.params["pkg"]
+        data = get_recommended_datasets(pkg_id)
+        return json.dumps(data)
+
+
+
+
 
 
 
