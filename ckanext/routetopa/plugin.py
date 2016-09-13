@@ -40,8 +40,6 @@ def get_config():
     return results
 
 def get_recommended_datasets(pkg_id):
-    log.debug("PKG_ID:"+pkg_id)
-    log.debug("type of:"+str(type(pkg_id)))
     package = toolkit.get_action('package_show')(None, {'id': pkg_id.strip()})
     response_data  = {}
     if "linked_datasets" in package and package["linked_datasets"] != "":
@@ -59,9 +57,19 @@ def get_recommended_datasets(pkg_id):
             response_data["datasets"] = l
     else:
         q= ''
-        if "category" in package and not package["category"] == "" : q += "category:\"" + package["category"] + "\"~25"
-        if len(q) > 0  : q += " OR " 
-        if "target_audience" in package and not package["target_audience"] == "" : q += "target_audience:\"" + package["target_audience"] + "\"~25"
+        category_string = ''
+        taget_audience_string = ''
+
+        if "category" in package and not package["category"] == "" : category_string = "category:\"" + package["category"] + "\"~25"
+        if "target_audience" in package and not package["target_audience"] == "" : taget_audience_string = "target_audience:\"" + package["target_audience"] + "\"~25"
+
+        if (category_string and taget_audience_string):
+            q = category_string + " OR " + taget_audience_string
+        elif (category_string):
+            q = category_string
+        elif (taget_audience_string):
+            q = taget_audience_string
+
         data_dict = {
             'qf':'target_audience^4 category^4 name^4 title^4 tags^2 groups^2 text',
             'q': q,
