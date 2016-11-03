@@ -18,7 +18,7 @@ activate python virtual env
 clone git repository
 
 ```sh
-git@gitlab.insight-centre.org:egov/ckanext-routetopa.git
+git clone https://github.com/routetopa/ckanext-routetopa.git
 cd ckanext-routetopa
 ```
 
