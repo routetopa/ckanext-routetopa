@@ -7,7 +7,7 @@ from ckan.lib.base import BaseController
 from ckan.common import json, response, request
 import ckan.model as model
 import os
-from ckan.lib.base import c, g, h
+from ckan.lib.base import c#, g, h
 
 log = getLogger(__name__)
 
