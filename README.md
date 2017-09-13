@@ -33,9 +33,9 @@ retstart solar
 
 ```sh
 sudo service jetty restart
-
+```
 for Ubuntu 16.04
-
+```sh
 sudo service jetty8 restart
 ```
 
